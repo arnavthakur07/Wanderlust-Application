@@ -5,35 +5,40 @@
     <div class="col-8 offset-2">
 
     <h3>Edit</h3>
- <form method="POST" action="/listings/<%= listing.id %>?_method=PUT" novalidate class="needs-validation">
+ <form method="POST" action="/listings/<%= listing.id %>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
 
     <div class="mb-3">
          <label for="title" class="form-label">Title</label>
-     <input value="<%= listing.title %>" name="title" type="text" class="form-control" required>
+     <input value="<%= listing.title %>" name="listing[title]" type="text" class="form-control" required>
  
     </div>
   
      <div class="mb-3 ">
           <label for="description" class="form-label">description</label>
-        <textarea placeholder="enter the description" name="description" class="form-control" required><%= listing.description %> </textarea>
+        <textarea placeholder="enter the description" name="listing[description]" class="form-control" required><%= listing.description %> </textarea>
      </div>
 
+    <div class="mb-3">
+  Original listing Image <br/>
+  <img src="<%= originalImageUrl %>" style="width:300px; height:auto; border-radius:8px;" />
+</div>
+
  
-  <div class="mb-3">
-     <label for="image" class="form-label">image</label>
-  <input type="text" name="image" value="<%= listing.image.url %>" placeholder="Image URL" class="form-control" required/>
+     <div class="mb-3">
+     <label for="image" class="form-label">Upload New Image</label>
+  <input  name="listing[image]" type="file" class="form-control"  />
   </div>
 
   <div class="row">
 
            <div class="mb-3 col-md-4">
     <label for="price" class="form-label">price</label>
- <input placeholder="enter the price" value="<%= listing.price %>" name="price" type="number" class="form-control" required>
+ <input placeholder="enter the price" value="<%= listing.price %>" name="listing[price]" type="number" class="form-control" required>
 
   </div>
  <div class="mb-3 col-md-8 ">
     <label for="country" class="form-label">country</label>
-    <input value="<%= listing.country %>"  name="country" type="text" class="form-control" required> 
+    <input value="<%= listing.country %>"  name="listing[country]" type="text" class="form-control" required> 
 
   </div>
   </div>
@@ -41,7 +46,7 @@
   
   <div class="mb-3">
      <label for="location" class="form-label">location</label>
-   <input  value="<%= listing.location %>" name="location" class="form-control" type="text" required>
+   <input  value="<%= listing.location %>" name="listing[location]" class="form-control" type="text" required>
   </div>
 
   <br><br>

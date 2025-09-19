@@ -1,14 +1,79 @@
 <% layout("/layouts/boilerplate")%>
-<body>
-    <h3>All listings</h3>
+  <%=success%>
+    <!-- <h3>All listings</h3> -->
     <!-- <form method="get" action="/listings/new">
         <button>Create new list</button>
     </form> -->
+    
+
+
+
+
+<div class="container my-5">
+  <div class="d-flex justify-content-center">
+    <div class="border rounded-pill shadow-sm bg-white d-flex align-items-center px-3 py-2" style="width: 850px;">
+
+      <!-- Where -->
+      <div class="px-3 border-end">
+        <small class="text-muted d-block">Where</small>
+        <input type="text" class="form-control border-0 p-0" placeholder="Add location">
+      </div>
+
+      <!-- Check in -->
+      <div class="px-3 border-end">
+        <small class="text-muted d-block">Check in</small>
+        <input type="date" class="form-control border-0 p-0">
+      </div>
+
+      <!-- Check out -->
+      <div class="px-3 border-end">
+        <small class="text-muted d-block">Check out</small>
+        <input type="date" class="form-control border-0 p-0">
+      </div>
+
+      <!-- Who (Guests dropdown) -->
+      <div class="dropdown px-3">
+        <small class="text-muted d-block">Who</small>
+        <button class="btn btn-sm btn-light dropdown-toggle border-0 p-0 bg-white" id="guestDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          Add guests
+        </button>
+        <ul class="dropdown-menu p-3" aria-labelledby="guestDropdown" style="min-width:200px;">
+          <li class="d-flex justify-content-between align-items-center">
+            <span>Adults</span>
+            <div>
+              <button class="btn btn-sm btn-outline-secondary" onclick="changeGuests(-1)">-</button>
+              <span id="guestCount" class="mx-2">0</span>
+              <button class="btn btn-sm btn-outline-secondary" onclick="changeGuests(1)">+</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Search button -->
+      <button class="btn btn-danger rounded-circle ms-auto">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  let guests = 0;
+  function changeGuests(val) {
+    guests = Math.max(0, guests + val);
+    document.getElementById("guestCount").innerText = guests;
+    document.getElementById("guestDropdown").innerText = guests > 0 ? guests + " guest(s)" : "Add guests";
+  }
+</script>
+
+
+
   
     <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
           <% for(let listing of allListings) {%>
             <a href="/listings/<%= listing.id%>" class="listing-link">
-    <div class="card col">
+    <div class="card col listing-card">
           
     <img src="<%= listing.image.url ? listing.image.url : listing.image %>" class="card-img-top" alt="listing_image" style="height: 20rem"/>
     <div class="card-img-overlay"></div>
@@ -23,7 +88,7 @@
 <%}%>
 
    
-</body>
+
 
 
 
