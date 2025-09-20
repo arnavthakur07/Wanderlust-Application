@@ -99,5 +99,6 @@ wanderlust/
 
 ## 📸 Screenshots
 
-(Add screenshots of homepage, listing page, create listing form, etc.)
+Home Page:
+![image alt](https://github.com/arnavthakur07/Wanderlust-Application/blob/main/listings.png)
 
