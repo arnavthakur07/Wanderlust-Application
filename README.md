@@ -105,3 +105,6 @@ Home Page:
 AddNewForm:
 ![image alt](https://github.com/arnavthakur07/Wanderlust-Application/blob/main/addNewListing.png)
 
+Reviews:
+![image alt](https://github.com/arnavthakur07/Wanderlust-Application/blob/main/%20reviews.png)
+
