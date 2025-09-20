@@ -86,7 +86,7 @@ wanderlust/
 4. Start the app
 
    ```bash
-   npm start
+   node index.js
    ```
 
 5. Visit the app
